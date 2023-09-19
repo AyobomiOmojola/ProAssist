@@ -1,0 +1,370 @@
+[
+    {
+    "model": "core_app.Location",
+    "pk": 1,
+    "fields":{
+        "state":"Abia",
+        "lgas": ["Aba North", "Aba South", "Arochukwu", "Bende", "Ikwuano", "Isiala Ngwa North", "Isiala Ngwa South", "Isuikwuato", "Obi Ngwa", "Ohafia", "Osisioma Ngwa", "Ugwunagbo", "Ukwa East", "Ukwa West", "Umuahia North", "Umuahia South", "Umu Nneochi"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 2,
+    "fields":{
+        "state":"Adamawa",
+        "lgas": ["Demsa", "Fufure", "Ganye", "Girei", "Gombi", "Guyuk", "Hong", "Jada", "Lamurde", "Madagali", "Maiha", "Mayo-Belwa", "Michika", "Mubi North", "Mubi South", "Numan", "Shelleng", "Song", "Toungo", "Yola North", "Yola South"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 3,
+    "fields":{
+        "state":"Akwa Ibom",
+        "lgas": ["Abak", "Eastern Obolo", "Eket", "Esit Eket", "Essien Udim", "Etim Ekpo", "Etinan", "Ibeno", "Ibesikpo Asutan", "Ibiono Ibom", "Ika", "Ikono", "Ikot Abasi", "Ikot Ekpene", "Ini", "Itu", "Mbo", "Mkpat-Enin", "Nsit-Atai", "Nsit-Ibom", "Nsit-Ubium", "Obot Akara", "Okobo", "Onna", "Oron", "Oruk Anam", "Udung-Uko", "Ukanafun", "Uruan", "Urue-Offong/Oruko", "Uyo"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 4,
+    "fields":{
+        "state":"Anambra",
+        "lgas": ["Aguata", "Anambra East", "Anambra West", "Anaocha", "Awka North", "Awka South", "Ayamelum", "Dunukofia", "Ekwusigo", "Idemili North", "Idemili South", "Ihiala", "Njikoka", "Nnewi North", "Nnewi South", "Ogbaru", "Onitsha North", "Onitsha South", "Orumba North", "Orumba South", "Oyi"]
+    }
+
+},
+    {
+    "model": "core_app.Location",
+    "pk": 5,
+    "fields":{
+        "state":"Bauchi",
+        "lgas": ["Alkaleri", "Bauchi", "Bogoro", "Damban", "Darazo", "Dass", "Gamawa", "Ganjuwa", "Giade", "Itas/Gadau", "Jama'are", "Katagum", "Kirfi", "Misau", "Ningi", "Shira", "Tafawa Balewa", "Toro", "Warji", "Zaki"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 6,
+    "fields":{
+        "state":"Bayelsa",
+        "lgas": ["Brass", "Ekeremor", "Kolokuma/Opokuma", "Nembe", "Ogbia", "Sagbama", "Southern Ijaw", "Yenagoa"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 7,
+    "fields":{
+        "state":"Benue",
+        "lgas": ["Ado", "Agatu", "Apa", "Buruku", "Gboko", "Guma", "Gwer East", "Gwer West", "Katsina-Ala", "Konshisha", "Kwande", "Logo", "Makurdi", "Obi", "Ogbadibo", "Ohimini", "Oju", "Okpokwu", "Otukpo", "Tarka", "Ukum", "Ushongo", "Vandeikya"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 8,
+    "fields":{
+        "state":"Borno",
+        "lgas": ["Abadam", "Askira/Uba", "Bama", "Bayo", "Biu", "Chibok", "Damboa", "Dikwa", "Gubio", "Guzamala", "Gwoza", "Hawul", "Jere", "Kaga", "Kala/Balge", "Konduga", "Kukawa", "Kwaya Kusar", "Mafa", "Magumeri", "Maiduguri", "Marte", "Mobbar", "Monguno", "Ngala", "Nganzai", "Shani"]
+    }
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 9,
+    "fields":{
+        "state":"Cross River",
+        "lgas": ["Akpabuyo", "Bakassi", "Bekwarra", "Biase", "Boki", "Calabar Municipal", "Calabar South", "Etung", "Ikom", "Obanliku", "Obubra", "Obudu", "Odukpani", "Ogoja", "Yakuur", "Yala"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 10,
+    "fields":{
+        "state":"Delta",
+        "lgas": ["Aniocha North", "Aniocha South", "Bomadi", "Burutu", "Ethiope East", "Ethiope West", "Ika North East", "Ika South", "Isoko North", "Isoko South", "Ndokwa East", "Ndokwa West", "Okpe", "Oshimili North", "Oshimili South", "Patani", "Sapele", "Udu", "Ughelli North", "Ughelli South", "Ukwuani", "Uvwie", "Warri North", "Warri South", "Warri South West"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 11,
+    "fields":{
+        "state":"Ebonyi",
+        "lgas": ["Abakaliki", "Afikpo North", "Afikpo South", "Ebonyi", "Ezza North", "Ezza South", "Ikwo", "Ishielu", "Ivo", "Izzi", "Ohaozara", "Ohaukwu", "Onicha"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 12,
+    "fields":{
+        "state":"Edo",
+        "lgas": ["Akoko-Edo", "Egor", "Esan Central", "Esan North-East", "Esan South-East", "Esan West", "Etsako Central", "Etsako East", "Etsako West", "Igueben", "Ikpoba-Okha", "Oredo", "Orhionmwon", "Ovia North-East", "Ovia South-West", "Owan East", "Owan West", "Uhunmwonde"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 13,
+    "fields":{
+        "state":"Ekiti",
+        "lgas": ["Ado-Ekiti", "Efon", "Ekiti East", "Ekiti South-West", "Ekiti West", "Emure", "Gbonyin", "Ido-Osi", "Ijero", "Ikere", "Ikole", "Ilejemeje", "Irepodun/Ifelodun", "Ise/Orun", "Moba", "Oye"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 14,
+    "fields":{
+        "state":"Enugu",
+        "lgas": ["Aninri", "Awgu", "Enugu East", "Enugu North", "Enugu South", "Ezeagu", "Igbo Etiti", "Igbo Eze North", "Igbo Eze South", "Isi Uzo", "Nkanu East", "Nkanu West", "Nsukka", "Oji River", "Udenu", "Udi", "Uzo-Uwani"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 15,
+    "fields":{
+        "state":"Gombe",
+        "lgas": ["Akko", "Balanga", "Billiri", "Dukku", "Funakaye", "Gombe", "Kaltungo", "Kwami", "Nafada", "Shongom", "Yamaltu/Deba"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 16,
+    "fields":{
+        "state":"Imo",
+        "lgas": ["Aboh-Mbaise", "Ahiazu-Mbaise", "Ehime-Mbano", "Ezinihitte", "Ideato North", "Ideato South", "Ihitte/Uboma", "Ikeduru", "Isiala Mbano", "Isu", "Mbaitoli", "Ngor Okpala", "Njaba", "Nkwerre", "Nwangele", "Obowo", "Oguta", "Ohaji/Egbema", "Okigwe", "Orlu", "Orsu", "Oru East", "Oru West", "Owerri Municipal", "Owerri North", "Owerri West", "Unuimo"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 17,
+    "fields":{
+        "state":"Jigawa",
+        "lgas": ["Auyo", "Babura", "Biriniwa", "Birnin Kudu", "Buji", "Dutse", "Gagarawa", "Garki", "Gumel", "Guri", "Gwaram", "Gwiwa", "Hadejia", "Jahun", "Kafin Hausa", "Kazaure", "Kiri Kasama", "Kiyawa", "Maigatari", "Malam Madori", "Miga", "Ringim", "Roni", "Sule Tankarkar", "Taura", "Yankwashi"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 18,
+    "fields":{
+        "state":"Kaduna",
+        "lgas": ["Birnin Gwari", "Chikun", "Giwa", "Igabi", "Ikara", "Jaba", "Jema'a", "Kachia", "Kaduna North", "Kaduna South", "Kagarko", "Kajuru", "Kaura", "Kauru", "Kubau", "Kudan", "Lere", "Makarfi", "Sabon Gari", "Sanga", "Soba", "Zangon Kataf", "Zaria"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 19,
+    "fields":{
+        "state":"Kano",
+        "lgas": ["Ajingi", "Albasu", "Bagwai", "Bebeji", "Bichi", "Bunkure", "Dala", "Dambatta", "Dawakin Kudu", "Dawakin Tofa", "Doguwa", "Fagge", "Gabasawa", "Garko", "Garun Mallam", "Gaya", "Gezawa", "Gwale", "Gwarzo", "Kabo", "Kano Municipal", "Karaye", "Kibiya", "Kiru", "Kumbotso", "Kunchi", "Kura", "Madobi", "Makoda", "Minjibir", "Nasarawa", "Rano", "Rimin Gado", "Rogo", "Shanono", "Sumaila", "Takai", "Tarauni", "Tofa", "Tsanyawa", "Tudun Wada", "Ungogo", "Warawa", "Wudil"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 20,
+    "fields":{
+        "state":"Katsina",
+        "lgas": ["Bakori", "Batagarawa", "Batsari", "Baure", "Bindawa", "Charanchi", "Dandume", "Danja", "Dan Musa", "Daura", "Dutsi", "Dutsin-Ma", "Faskari", "Funtua", "Ingawa", "Jibia", "Kafur", "Kaita", "Kankara", "Kankia", "Katsina", "Kurfi", "Kusada", "Mai'Adua", "Malumfashi", "Mani", "Mashi", "Matazu", "Musawa", "Rimi", "Sabuwa", "Safana", "Sandamu", "Zango"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 21,
+    "fields":{
+        "state":"Kebbi",
+        "lgas": ["Aleiro", "Arewa Dandi", "Argungu", "Augie", "Bagudo", "Birnin Kebbi", "Bunza", "Dandi", "Fakai", "Gwandu", "Jega", "Kalgo", "Koko/Besse", "Maiyama", "Ngaski", "Sakaba", "Shanga", "Suru", "Wasagu/Danko", "Yauri", "Zuru"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 22,
+    "fields":{
+        "state":"Kogi",
+        "lgas": ["Adavi", "Ajaokuta", "Ankpa", "Bassa", "Dekina", "Ibaji", "Idah", "Igalamela-Odolu", "Ijumu", "Kabba/Bunu", "Kogi", "Lokoja", "Mopa-Muro", "Ofu", "Ogori/Magongo", "Okehi", "Okene", "Olamaboro", "Omala", "Yagba East", "Yagba West"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 23,
+    "fields":{
+        "state":"Kwara",
+        "lgas": ["Asa", "Baruten", "Edu", "Ekiti", "Ifelodun", "Ilorin East", "Ilorin South", "Ilorin West", "Irepodun", "Isin", "Kaiama", "Moro", "Offa", "Oke Ero", "Oyun", "Pategi"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 24,
+    "fields":{
+        "state":"Lagos",
+        "lgas": ["Agege", "Ajeromi-Ifelodun", "Alimosho", "Amuwo-Odofin", "Apapa", "Badagry", "Epe", "Eti-Osa", "Ibeju-Lekki", "Ifako-Ijaiye", "Ikeja", "Ikorodu", "Kosofe", "Lagos Island", "Lagos Mainland", "Mushin", "Ojo", "Oshodi-Isolo", "Shomolu", "Surulere"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 25,
+    "fields":{
+        "state":"Nasarawa",
+        "lgas": ["Akwanga", "Awe", "Doma", "Karu", "Keana", "Keffi", "Kokona", "Lafia", "Nasarawa", "Nasarawa Egon", "Obi", "Toto", "Wamba"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 26,
+    "fields":{
+        "state":"Niger",
+        "lgas": ["Agaie", "Agwara", "Bida", "Borgu", "Bosso", "Chanchaga", "Edati", "Gbako", "Gurara", "Katcha", "Kontagora", "Lapai", "Lavun", "Magama", "Mariga", "Mashegu", "Mokwa", "Munya", "Paikoro", "Rafi", "Rijau", "Shiroro", "Suleja", "Tafa", "Wushishi"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 27,
+    "fields":{
+        "state":"Ogun",
+        "lgas": ["Abeokuta North", "Abeokuta South", "Ado-Odo/Ota", "Ewekoro", "Ifo", "Ijebu East", "Ijebu North", "Ijebu North East", "Ijebu Ode", "Ikenne", "Imeko Afon", "Ipokia", "Obafemi Owode", "Odeda", "Odogbolu", "Ogun Waterside", "Remo North", "Shagamu", "Yewa North", "Yewa South"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 28,
+    "fields":{
+        "state":"Ondo",
+        "lgas": ["Akoko North East", "Akoko North West", "Akoko South Akure East", "Akoko South West", "Akure North", "Akure South", "Ese Odo", "Idanre", "Ifedore", "Ilaje", "Ile Oluji/Okeigbo", "Irele", "Odigbo", "Okitipupa", "Ondo East", "Ondo West", "Ose", "Owo"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 29,
+    "fields":{
+        "state":"Osun",
+        "lgas": ["Atakunmosa East", "Atakunmosa West", "Aiyedaade", "Aiyedire", "Boluwaduro", "Boripe", "Ede North", "Ede South", "Ife Central", "Ife East", "Ife North", "Ife South", "Egbedore", "Ejigbo", "Ifedayo", "Ifelodun", "Ilesa East", "Ilesa West", "Irepodun", "Irewole", "Isokan", "Iwo", "Obokun", "Odo Otin", "Ola Oluwa", "Olorunda", "Oriade", "Orolu", "Osogbo"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 30,
+    "fields":{
+        "state":"Oyo",
+        "lgas": ["Afijio", "Akinyele", "Atiba", "Atisbo", "Egbeda", "Ibadan North", "Ibadan North East", "Ibadan North West", "Ibadan South East", "Ibadan South West", "Ibarapa Central", "Ibarapa East", "Ibarapa North", "Ido", "Irepo", "Iseyin", "Itesiwaju", "Iwajowa", "Kajola", "Lagelu", "Ogbomosho North", "Ogbomosho South", "Ogo Oluwa", "Olorunsogo", "Oluyole", "Ona Ara", "Orelope", "Ori Ire", "Oyo East", "Oyo West", "Saki East", "Saki West", "Surulere"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 31,
+    "fields":{
+        "state":"Plateau",
+        "lgas": ["Barkin Ladi", "Bassa", "Bokkos", "Jos East", "Jos North", "Jos South", "Kanam", "Kanke", "Langtang North", "Langtang South", "Mangu", "Mikang", "Pankshin", "Qua'an Pan", "Riyom", "Shendam", "Wase"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 32,
+    "fields":{
+        "state":"Rivers",
+        "lgas": ["Abua/Odual", "Ahoada East", "Ahoada West", "Akuku-Toru", "Andoni", "Asari-Toru", "Bonny", "Degema", "Eleme", "Emohua", "Etche", "Gokana", "Ikwerre", "Khana", "Obio/Akpor", "Ogba/Egbema/Ndoni", "Ogu/Bolo", "Okrika", "Omuma", "Opobo/Nkoro", "Oyigbo", "Port Harcourt", "Tai"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 33,
+    "fields":{
+        "state":"Sokoto",
+        "lgas": ["Binji", "Bodinga", "Dange-Shuni", "Gada", "Goronyo", "Gudu", "Gwadabawa", "Illela", "Isa", "Kebbe", "Kware", "Rabah", "Sabon Birni", "Shagari", "Silame", "Sokoto North", "Sokoto South", "Tambuwal", "Tangaza", "Tureta", "Wamako", "Wurno", "Yabo"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 34,
+    "fields":{
+        "state":"Taraba",
+        "lgas": ["Ardo Kola", "Bali", "Donga", "Gashaka", "Gassol", "Ibi", "Jalingo", "Karim Lamido", "Kumi", "Lau", "Sardauna", "Takum", "Ussa", "Wukari", "Yorro", "Zing"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 35,
+    "fields":{
+        "state":"Yobe",
+        "lgas": ["Bade", "Bursari", "Damaturu", "Fika", "Fune", "Geidam", "Gujba", "Gulani", "Jakusko", "Karasuwa", "Machina", "Nangere", "Nguru", "Potiskum", "Tarmuwa", "Yunusari", "Yusufari"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 36,
+    "fields":{
+        "state":"Zamfara",
+        "lgas": ["Anka", "Bakura", "Birnin Magaji/Kiyaw", "Bukkuyum", "Bungudu", "Gummi", "Gusau", "Kaura Namoda", "Maradun", "Maru", "Shinkafi", "Talata Mafara", "Tsafe", "Zurmi"]
+    }
+    
+},
+
+    {
+    "model": "core_app.Location",
+    "pk": 37,
+    "fields":{
+        "state":"Abuja",
+        "lgas": ["Abaji", "Bwari", "Gwagwalada", "Kuje", "Kwali", "Municipal Area Council"]
+    }
+    
+}
+
+]

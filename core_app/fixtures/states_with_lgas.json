@@ -1,0 +1,1074 @@
+[
+    {
+    "model": "core_app.StateLga",
+    "pk": 2,
+    "fields":{
+        "name":"ABIA",
+        "state": null
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 3,
+    "fields":{
+        "name":"aba north",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 4,
+    "fields":{
+        "name":"aba south",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 5,
+    "fields":{
+        "name":"arochukwu",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 6,
+    "fields":{
+        "name":"bende",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 7,
+    "fields":{
+        "name":"ikwuano",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 8,
+    "fields":{
+        "name":"isiala ngwa north",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 9,
+    "fields":{
+        "name":"isiala ngwa south",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 10,
+    "fields":{
+        "name":"isuikwuato",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 11,
+    "fields":{
+        "name":"obi ngwa",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 12,
+    "fields":{
+        "name":"ohafia",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 13,
+    "fields":{
+        "name":"osisioma ngwa",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 14,
+    "fields":{
+        "name":"ugwunagbo",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 15,
+    "fields":{
+        "name":"ukwa east",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 16,
+    "fields":{
+        "name":"ukwa west",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 17,
+    "fields":{
+        "name":"umuahia north",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 18,
+    "fields":{
+        "name":"umuahia south",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 19,
+    "fields":{
+        "name":"umu nneochi",
+        "state": 2
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 20,
+    "fields":{
+        "name":"BAUCHI",
+        "state": null
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 21,
+    "fields":{
+        "name":"alkaleri",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 22,
+    "fields":{
+        "name":"shira",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 23,
+    "fields":{
+        "name":"ningi",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 24,
+    "fields":{
+        "name":"misau",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 25,
+    "fields":{
+        "name":"kirfi",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 26,
+    "fields":{
+        "name":"katagum",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 27,
+    "fields":{
+        "name":"itas",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 28,
+    "fields":{
+        "name":"giade",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 29,
+    "fields":{
+        "name":"ganjuwa",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 30,
+    "fields":{
+        "name":"gamawa",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 31,
+    "fields":{
+        "name":"dass",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 32,
+    "fields":{
+        "name":"darazo",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 33,
+    "fields":{
+        "name":"bogoro",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 34,
+    "fields":{
+        "name":"toro",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 35,
+    "fields":{
+        "name":"warji",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 36,
+    "fields":{
+        "name":"zaki",
+        "state": 20
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 37,
+    "fields":{
+        "name":"BAYELSA",
+        "state": null
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 38,
+    "fields":{
+        "name":"yenagoa",
+        "state": 37
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 39,
+    "fields":{
+        "name":"southern ijaw",
+        "state": 37
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 40,
+    "fields":{
+        "name":"sagbama",
+        "state": 37
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 41,
+    "fields":{
+        "name":"ogbia",
+        "state": 37
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 42,
+    "fields":{
+        "name":"nembe",
+        "state": 37
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 43,
+    "fields":{
+        "name":"kolokuma",
+        "state": 37
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 44,
+    "fields":{
+        "name":"ekeremor",
+        "state": 37
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 45,
+    "fields":{
+        "name":"brass",
+        "state": 37
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 46,
+    "fields":{
+        "name":"EBONYI",
+        "state": null
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 47,
+    "fields":{
+        "name":"abakaliki",
+        "state": 46
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 48,
+    "fields":{
+        "name":"afikpo North",
+        "state": 46
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 49,
+    "fields":{
+        "name":"afikpo South",
+        "state": 46
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 50,
+    "fields":{
+        "name":"ezza North",
+        "state": 46
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 51,
+    "fields":{
+        "name":"ezza South",
+        "state": 46
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 52,
+    "fields":{
+        "name":"ikwo",
+        "state": 46
+    }
+    
+},
+
+{
+    "model": "core_app.StateLga",
+    "pk": 53,
+    "fields":{
+        "name":"ishielu",
+        "state": 46
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 54,
+    "fields":{
+        "name":"ivo",
+        "state": 46
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 55,
+    "fields":{
+        "name":"izzi",
+        "state": 46
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 56,
+    "fields":{
+        "name":"ohaozara",
+        "state": 46
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 57,
+    "fields":{
+        "name":"ohaukwu",
+        "state": 46
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 58,
+    "fields":{
+        "name":"onicha",
+        "state": 46
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 59,
+    "fields":{
+        "name":"LAGOS",
+        "state": null
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 60,
+    "fields":{
+        "name":"agege",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 61,
+    "fields":{
+        "name":"ajeromi-ifelodun",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 62,
+    "fields":{
+        "name":"alimosho",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 63,
+    "fields":{
+        "name":"amuwo-odofin",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 64,
+    "fields":{
+        "name":"apapa",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 65,
+    "fields":{
+        "name":"badagry",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 66,
+    "fields":{
+        "name":"epe",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 67,
+    "fields":{
+        "name":"eti-osa",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 68,
+    "fields":{
+        "name":"ibeju-lekki",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 69,
+    "fields":{
+        "name":"ifako-ijaiye",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 70,
+    "fields":{
+        "name":"ikeja",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 71,
+    "fields":{
+        "name":"ikorodu",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 72,
+    "fields":{
+        "name":"lagos",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 73,
+    "fields":{
+        "name":"kosofe",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 74,
+    "fields":{
+        "name":"lagos island",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 75,
+    "fields":{
+        "name":"lagos mainland",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 76,
+    "fields":{
+        "name":"mushin",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 77,
+    "fields":{
+        "name":"ojo",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 78,
+    "fields":{
+        "name":"oshodi-isolo",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 79,
+    "fields":{
+        "name":"shomolu",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 80,
+    "fields":{
+        "name":"surulere",
+        "state": 59
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 81,
+    "fields":{
+        "name":"OGUN",
+        "state": null
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 82,
+    "fields":{
+        "name":"abeokuta north",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 83,
+    "fields":{
+        "name":"abeokuta south",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 84,
+    "fields":{
+        "name":"ota",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 85,
+    "fields":{
+        "name":"ewekoro",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 86,
+    "fields":{
+        "name":"ifo",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 87,
+    "fields":{
+        "name":"ijebu east",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 88,
+    "fields":{
+        "name":"ijebu north",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 89,
+    "fields":{
+        "name":"ijebu north east",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 90,
+    "fields":{
+        "name":"ijebu ode",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 91,
+    "fields":{
+        "name":"ikenne",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 92,
+    "fields":{
+        "name":"imeko afon",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 93,
+    "fields":{
+        "name":"ipokia",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 94,
+    "fields":{
+        "name":"obafemi owode",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 95,
+    "fields":{
+        "name":"odeda",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 96,
+    "fields":{
+        "name":"odogbolu",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 97,
+    "fields":{
+        "name":"ogun waterside",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 98,
+    "fields":{
+        "name":"remo north",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 99,
+    "fields":{
+        "name":"shagamu",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 100,
+    "fields":{
+        "name":"yewa north",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 101,
+    "fields":{
+        "name":"yewa south",
+        "state": 81
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 102,
+    "fields":{
+        "name":"ONDO",
+        "state": null
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 103,
+    "fields":{
+        "name":"akoko north east",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 104,
+    "fields":{
+        "name":"akoko north west",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 105,
+    "fields":{
+        "name":"akoko south akure east",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 106,
+    "fields":{
+        "name":"akoko south west",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 107,
+    "fields":{
+        "name":"akure North",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 108,
+    "fields":{
+        "name":"akure South",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 109,
+    "fields":{
+        "name":"ese Odo",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 110,
+    "fields":{
+        "name":"idanre",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 111,
+    "fields":{
+        "name":"ifedore",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 112,
+    "fields":{
+        "name":"ilaje",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 113,
+    "fields":{
+        "name":"okeigbo",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 114,
+    "fields":{
+        "name":"irele",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 115,
+    "fields":{
+        "name":"odigbo",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 116,
+    "fields":{
+        "name":"okitipupa",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 117,
+    "fields":{
+        "name":"ondo east",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 118,
+    "fields":{
+        "name":"ondo west",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 119,
+    "fields":{
+        "name":"ose",
+        "state": 102
+    }
+    
+},
+{
+    "model": "core_app.StateLga",
+    "pk": 120,
+    "fields":{
+        "name":"owo",
+        "state": 102
+    }
+    
+}
+]
