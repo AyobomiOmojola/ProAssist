@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProAssist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'dist/css/perfect-scrollbar.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dist/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'dist/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'dist/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'dist/css/dark.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/chat_server.css' %}" />
+</head>
+
+<body id="body-pd" style="margin: 0">
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="#" class="nav_logo">
+                    <i class="bx bx-layer nav_logo-icon"></i>
+                    <h2><span class="nav_logo-name">ProAssist</span></h2>
+                </a>
+                <div class="nav_list">
+                    <a href="#" class="nav_link active">
+                        <i class="bx bx-grid-alt nav_icon"></i>
+                        <h6><span class="nav_name">Logged in as : <strong
+                                    style="color:rgb(107, 107, 239)">{{me.username}}</strong></span></h6>
+                    </a>
+        </nav>
+    </div>
+    <!--Container Main start-->
+    <div class="height-100 bg-light">
+        <div class="containerr">
+            <div class="main ps-1" id="chat-dialog">
+                <div class="tab-content" id="nav-tabContent">
+                    <!-- Start of Babble -->
+                    <div class="babble tab-pane fade active show" id="list-chat" role="tabpanel" style="width: 100%"
+                        aria-labelledby="list-chat-list">
+                        <!-- Start of Chat -->
+                        <div class="chat container" id="chat1">
+                            <div class="top">
+                                <div class="container">
+                                    <div class="col-md-12">
+                                        <div class="inside">
+                                            
+                                            <div class="data">
+                                                <h5><a href="#">{{user.username}}</a></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content" id="content">
+                                <div class="container" >
+                                    <div class="col-md-12" id="chat-body">
+                                        {% for message in messages %}
+                                        {% if message.sender == me.username %}
+                                        <div class="me message" >
+                                            <div class="text-main">
+                                                <div class="me text-group">
+                                                    <div class="me text">
+                                                        <p>
+                                                            {{message.message}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <span>{{message.timestamp|time:'H:i'}}</span>
+                                            </div>
+                                        </div>
+                                        {% else %}
+                                        <div class="message" >
+                                            <!-- DONT FORGET TO PUT PROFILE PICTURE -->
+                                            <div class="text-main">
+                                                <div class="text-group">
+                                                    <div class="text" >
+                                                        <p>
+                                                            {{message.message}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <span>{{message.timestamp|time:'H:i'}}</span>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="col-md-12">
+                                    <div class="bottom">
+                                        <form class="text-area">
+                                            <textarea class="form-control" id="message_input" placeholder="Start typing for reply..."
+                                                rows="1" style="color: white !important"></textarea>
+
+                                            <button type="submit" class="btn send" id="chat-message-submit">
+                                                <i class="ti-location-arrow"></i>
+                                            </button>
+                                        </form>
+                                        <label>
+                                            <input type="file" />
+                                            <span class="btn attach"><i class="ti-clip"></i></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{user.id|json_script:"json-otheruser-id"}}
+    {{token|json_script:"requestuser-token"}}
+    {{user.username|json_script:"json-otherusername"}}
+    {{me.username|json_script:"json-requestusername"}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'js/chat.js' %}"></script>
+    <script src="{% static 'dist/js/jquery3.3.1.js' %}"></script>
+    <script src="{% static 'dist/js/vendor/jquery-slim.min.js' %}"></script>
+    <script src="{% static 'dist/js/vendor/popper.min.js' %}"></script>
+    <!-- <script src="{% static 'dist/js/bootstrap.min.js' %}"></script>  -->
+    <script src="{% static 'dist/js/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'dist/js/script.js' %}"></script>
+</body>
+
+</html>

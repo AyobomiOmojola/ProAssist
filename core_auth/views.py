@@ -5,15 +5,18 @@ from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import APIView 
 from django.contrib.auth import authenticate
+from rest_framework import status, permissions
 from django.contrib.auth.models import User
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from .serializers import UserProfileSerializer, RateUserSerializer, ReviewUserSerializer
 from core_app.models import Userprofile, Rating, Review, JobPosting
 from core_app.serializers import JobPostingSerializer
+from django.contrib.sessions.middleware import SessionMiddleware
 
 
 class RegisterView(APIView):
     serializer_class = RegisterSerializer
+    permission_classes = [permissions.AllowAny]
 
     def post(self, request: Request):
         data = request.data
@@ -37,7 +40,7 @@ class RegisterView(APIView):
 
 
 class LoginView(APIView):
-
+    permission_classes = [permissions.AllowAny]
     def post(self, request: Request):
         serializer = AuthTokenSerializer(data=request.data)
 
@@ -56,7 +59,7 @@ class LoginView(APIView):
             return Response(data=response, status=status.HTTP_200_OK)
 
         else:
-            return Response(data={"message": "Invalid email or password"})
+            return Response(data={"message": "Invalid email or password",})
 
     def get(self, request: Request):
         content = {"user": str(request.user), "auth": str(request.auth)}
