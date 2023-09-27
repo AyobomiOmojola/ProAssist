@@ -10,7 +10,7 @@ class Profession(models.Model):
     profession = models.CharField(max_length=264, blank=False)
 
     def __str__(self):
-        return f"{self.id}.)  {self.profession}"
+        return f"{self.profession}"
 
 
 

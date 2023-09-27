@@ -27,9 +27,35 @@
                 <div class="nav_list">
                     <a href="#" class="nav_link active">
                         <i class="bx bx-grid-alt nav_icon"></i>
-                        <h6><span class="nav_name">Logged in as : <strong
+                        <h6 style="border-width:3px; border-style:solid; border-color:#FFFF; padding: 5px;" >
+                            <span class="nav_name">Logged in as : <strong
                                     style="color:rgb(107, 107, 239)">{{me.username}}</strong></span></h6>
                     </a>
+                    <br>
+                    <br>
+                    <br>
+                    <hr style="color: #FFFF; width: 100%; left: 20% ;">
+                    <a href="#" class="nav_link" style="right: 36px; color: #FFFF; text-decoration: underline; ">
+                        <i class="bx bx-message-square-detail nav_icon"></i>
+                        <span class="nav_name">PROFESSIONAL DETAILS:</span>
+                    </a>
+                    <a href="#" class="nav_link" style="right: 20px; color: #FFFF;">
+                        <i class="bx bx-message-square-detail nav_icon"></i>
+                        <span class="nav_name">Name: {{user.username}}</span>
+                    </a>
+                    <a href="#" class="nav_link" style="right: 20px; color: #FFFF;">
+                        <i class="bx bx-message-square-detail nav_icon"></i>
+                        <span class="nav_name">Profession: {{user.user_profile.profession}}</span>
+                    </a>
+                    <a href="#" class="nav_link" style="right: 20px; color: #FFFF;">
+                        <i class="bx bx-message-square-detail nav_icon"></i>
+                        <span class="nav_name">Phone Number: {{user.user_profile.phone_number}}</span>
+                    </a>
+                    <a href="#" class="nav_link" style="right: 20px; color: #FFFF;">
+                        <i class="bx bx-message-square-detail nav_icon"></i>
+                        <span class="nav_name">Email: {{user.user_profile.email}}</span>
+                    </a>
+                </div>
         </nav>
     </div>
     <!--Container Main start-->
