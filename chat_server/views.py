@@ -4,13 +4,10 @@ from chat_server.models import ChatBody
 from django.views import View
 from urllib.parse import parse_qs
 from rest_framework.authtoken.models import Token
+
 # Create your views here.
 
-
 User = get_user_model()
-def LoginToChat(request, id):
-    return render(request, 'login_to_chat.html', context={'id':id})
-
 
 
 class ChatView(View):
