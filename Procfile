@@ -1,1 +1,1 @@
-web: daphne tinkertale.asgi:application
+web: daphne proassist.asgi:application
