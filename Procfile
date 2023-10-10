@@ -1,1 +1,1 @@
-web: daphne proassist.asgi:application
+web: daphne proassist.asgi:application --port $PORT --bind 0.0.0.0 -v2
