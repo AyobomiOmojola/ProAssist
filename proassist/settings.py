@@ -25,19 +25,21 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.getenv('SECRET_KEY')
-
+# SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-bfp6ga3xpqdel9dkt2q+zidl7kjry1zo@@=5$$r*yafr8!1a2@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG')
+# DEBUG = os.getenv('DEBUG')
+DEBUG = True
+
 
 
 ALLOWED_HOSTS = ["*"]
@@ -122,9 +124,9 @@ ASGI_APPLICATION = "proassist.asgi.application"
 # }
 
 # Live Database for production
-PGSURL=os.getenv("PGSURL")
+# PGSURL=os.getenv("PGSURL")
 DATABASES={
-    "default":dj_database_url.config(default=PGSURL,conn_max_age=1800),
+    "default":dj_database_url.config(default="postgresql://postgres:wZpxFWm1gLA0ASTSeDbA@containers-us-west-74.railway.app:6192/railway",conn_max_age=1800),
 }
 
 
@@ -209,13 +211,14 @@ STORAGES = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-redis_host = os.getenv('REDIS_HOST')
-# socket.getaddrinfo('redis_host', 6379)
+
+# Production Redis Configuration
+# redis_host = os.getenv('REDIS_HOST')
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("redis_host")],
+            "hosts": [("redis://default:N2uu49j6pWD0hvA0c3ro@containers-us-west-58.railway.app:6104")],
         },
     },
 }
