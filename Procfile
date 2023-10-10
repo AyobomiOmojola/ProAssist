@@ -1,0 +1,1 @@
+web: daphne tinkertale.asgi:application

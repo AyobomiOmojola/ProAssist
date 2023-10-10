@@ -32,7 +32,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Userprofile
-        fields =  ['user','profession','bio','price','phone_number','email','state','gender']
+        fields =  ['user','profession','bio','pricing_rate','phone_number','email','gender']
         extra_kwargs = {
         "user" : {
             "read_only" : True,

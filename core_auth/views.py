@@ -12,11 +12,19 @@ from .serializers import UserProfileSerializer, RateUserSerializer, ReviewUserSe
 from core_app.models import Userprofile, Rating, Review, JobPosting
 from core_app.serializers import JobPostingSerializer
 from django.contrib.sessions.middleware import SessionMiddleware
+from drf_yasg.utils import swagger_auto_schema
 
+
+
+###########
+### REGISTER USERS
+###########
 
 class RegisterView(APIView):
     serializer_class = RegisterSerializer
     permission_classes = [permissions.AllowAny]
+
+    @swagger_auto_schema(operation_summary="Register Users", request_body=RegisterSerializer, tags=['Authentication'])
 
     def post(self, request: Request):
         data = request.data
@@ -28,8 +36,8 @@ class RegisterView(APIView):
 
 
             response = {
-                "message": "User Created Successfully", 
-                "data": serializer.data,
+                "MESSAGE": "User Created Successfully", 
+                "REGISTERED_USER": serializer.data,
                 #'token' : token.key
             }
 
@@ -39,8 +47,15 @@ class RegisterView(APIView):
 
 
 
+
+###########
+### LOGIN USERS
+###########
+
 class LoginView(APIView):
     permission_classes = [permissions.AllowAny]
+
+    @swagger_auto_schema(operation_summary="Login Users", request_body=AuthTokenSerializer, tags=['Authentication'])
     def post(self, request: Request):
         serializer = AuthTokenSerializer(data=request.data)
 
@@ -52,8 +67,8 @@ class LoginView(APIView):
             token, created = Token.objects.get_or_create(user=user)
 
             response = {
-                "message": "Login Successfull", 
-                "tokens": token.key
+                "MESSAGE": "Login Successfull", 
+                "TOKEN": token.key
             }
 
             return Response(data=response, status=status.HTTP_200_OK)
@@ -61,22 +76,36 @@ class LoginView(APIView):
         else:
             return Response(data={"message": "Invalid email or password",})
 
+    @swagger_auto_schema(operation_summary="Check for authentication", tags=['Authentication'])
     def get(self, request: Request):
         content = {"user": str(request.user), "auth": str(request.auth)}
 
         return Response(data=content, status=status.HTTP_200_OK)
 
 
+###########
+### LOGOUT USERS
+###########
 
 class LogoutView(APIView):
-    def post(self, request, format=None):
-        request.user.auth_token.delete()
-        return Response({"Message": "You are logged out"}, status=status.HTTP_200_OK)
+    permission_classes = [permissions.IsAuthenticated]
 
+    @swagger_auto_schema(operation_summary="Logout Users", tags=['Authentication'])
+    def get(self, request, format=None):
+        request.user.auth_token.delete()
+        return Response({"MESSAGE": "You are logged out"}, status=status.HTTP_200_OK)
+
+
+##########
+### RATE PROFESSIONALS
+##########
 
 class RateUser(APIView):
-    def post(self, request:Request, user_id):
-        enduser = User.objects.get(pk = user_id)
+    permission_classes = [permissions.IsAuthenticated]
+    @swagger_auto_schema(operation_summary="Rate professionals", operation_description="THIS ENDPOINT ALLOWS CONSUMERS TO RATE PROFESSIONALS FOR SERVICES RENDERED", request_body=RateUserSerializer, tags=['Rate/Review Professionals'])
+
+    def post(self, request:Request, username):
+        enduser = User.objects.get(username = username)
         actionuser = request.user
         data = request.data
         serializer = RateUserSerializer(data = data)
@@ -85,8 +114,8 @@ class RateUser(APIView):
             serializer.save(end_user=enduser,action_user=actionuser)
 
             response = {
-                "message":"You rated this user!",
-                "data":serializer.data
+                "MESSAGE":"You rated this user!",
+                "RATING": serializer.data
             }
 
             return Response(data=response, status=status.HTTP_201_CREATED)
@@ -94,9 +123,16 @@ class RateUser(APIView):
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+##########
+### REVIEW PROFESSIONALS
+##########
+
 class ReviewUser(APIView):
-    def post(self, request:Request, user_id):
-        enduser = User.objects.get(pk = user_id)
+    permission_classes = [permissions.IsAuthenticated]
+    @swagger_auto_schema(operation_summary="Review professionals", operation_description="THIS ENDPOINT ALLOWS CONSUMERS WRITE A REVIEW ON PROFESSIONALS FOR SERVICES RENDERED", request_body=ReviewUserSerializer, tags=['Rate/Review Professionals'])
+
+    def post(self, request:Request, username):
+        enduser = User.objects.get(username = username)
         actionuser = request.user
         data = request.data
         serializer = ReviewUserSerializer(data = data)
@@ -105,8 +141,8 @@ class ReviewUser(APIView):
             serializer.save(end_user=enduser,action_user=actionuser)
 
             response = {
-                "message":"You reviewed this user!",
-                "data":serializer.data
+                "MESSAGE":"You reviewed this user!",
+                "REVIEW":serializer.data
             }
 
             return Response(data=response, status=status.HTTP_201_CREATED)
@@ -115,7 +151,15 @@ class ReviewUser(APIView):
 
 
 
+##########
+### USERPROFILE
+##########
+
 class CreateUserProfile(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+    @swagger_auto_schema(operation_summary="Create UserProfile", request_body=UserProfileSerializer, tags=['Userprofile'])
+
+    #### CREATE YOUR USERPROFILE
     def post(self, request:Request):
         data = request.data
 
@@ -126,34 +170,38 @@ class CreateUserProfile(APIView):
             serializer.save(user=self.request.user)
 
             response = {
-                "message":"UserProfile Created",
-                "data":serializer.data
+                "MESSAGE":"UserProfile Created",
+                "USERPROFILE":serializer.data
             }
 
             return Response(data=response, status=status.HTTP_201_CREATED)
         
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+
+    @swagger_auto_schema(operation_summary="Retrieve your userprofile", operation_description="THIS ENPOINT RETRIEVES YOUR USERPROFILE WITH YOUR RATINGS, REVIEWS PENDING AND COMPLETED JOBS(IF YOUR ARE A PROFESSIONAL)", tags=['Userprofile'])
+
+    #### RETRIEVE YOUR USERPROFILE
     def get(self, request:Request):
         userprofile = Userprofile.objects.get(user = request.user)
         user_serializer = UserProfileSerializer(instance=userprofile)
 
-        # To get rating of user
+        ### To get rating of user
         ratings = Rating.objects.filter(end_user = request.user)
         rate_serializer = RateUserSerializer(instance=ratings, many=True)
 
-        # In order to get reviews of user:
+        ### In order to get reviews of user:
         reviews = Review.objects.filter(end_user = request.user)
         review_serializer = ReviewUserSerializer(instance=reviews, many=True)
 
-        # To get Pending jobs of users:
+        ### To get Pending jobs of users:
         pending_jobs = JobPosting.objects.filter(
             job_assign__assignee = request.user,
             status = 'P'
         )
         pending_jobs_serializer = JobPostingSerializer(instance = pending_jobs, many = True)
 
-        # To get Completed jobs of user:
+        ### To get Completed jobs of user:
         completed_jobs = JobPosting.objects.filter(
             job_assign__assignee = request.user,
             status = 'C'
@@ -161,16 +209,20 @@ class CreateUserProfile(APIView):
         completed_jobs_serializer = JobPostingSerializer(instance = completed_jobs, many = True)
 
         response = {
-                "message":"UserProfile of logged-in user",
-                "UserProfile_data":user_serializer.data,
-                "rate_serializer":rate_serializer.data,
-                "review_serializer":review_serializer.data,
-                "pending_jobs_serializer":pending_jobs_serializer.data,
-                "completed_jobs_serializer":completed_jobs_serializer.data
+                "MESSAGE":"UserProfile of logged-in user",
+                "USERPROFILE":user_serializer.data,
+                "RATINGS":rate_serializer.data,
+                "REVIEWS":review_serializer.data,
+                "PENDING_JOBS":pending_jobs_serializer.data,
+                "COMPLETED_JOBS":completed_jobs_serializer.data
             }
 
         return Response(data=response, status=status.HTTP_200_OK)
     
+
+    ####### UPDATE YOUR USERPROFILE
+    @swagger_auto_schema(operation_summary="Update Userprofile", request_body=UserProfileSerializer, tags=['Userprofile'])
+
     def put(self, request:Request):
         userprofile = Userprofile.objects.get(user = request.user)
         data = request.data
@@ -181,47 +233,60 @@ class CreateUserProfile(APIView):
             serializer.save(user=self.request.user)
 
             response = {
-                "message":"UserProfile Updated!!!",
-                "data":serializer.data
+                "MESSAGE":"UserProfile Updated!!!",
+                "USERPROFILE":serializer.data
             }
 
             return Response(data=response, status=status.HTTP_201_CREATED)
 
 
+
+#############
+#### VIEW OTHER USERPROFILES
+#############
+
 class OtherUserProfile(APIView):
-    def get(self, request:Request, user_id):
-        userprofile = Userprofile.objects.get(user = user_id)
-        user_serializer = UserProfileSerializer(instance=userprofile)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-        # To get rating of user
-        ratings = Rating.objects.filter(end_user = user_id)
-        rate_serializer = RateUserSerializer(instance=ratings, many=True)
+    @swagger_auto_schema(operation_summary="View other Userprofiles", operation_description="THIS ENDPOINT RETRIEVES OTHER USERPROFILES WITH THEIR RATINGS, REVIEWS, PENDING AND COMPLETED JOBS(IF YOUR ARE A PROFESSIONAL)", tags=['Userprofile'])
 
-        # In order to get reviews of  user:
-        reviews = Review.objects.filter(end_user = user_id)
-        review_serializer = ReviewUserSerializer(instance=reviews, many=True)
+    def get(self, request:Request, username):
+        other_user = User.objects.get(username=username)
+        userprofile = Userprofile.objects.filter(user = other_user)
+        if userprofile:
+            user_serializer = UserProfileSerializer(instance=userprofile, many=True)
 
-        # To get Pending jobs of users:
-        pending_jobs = JobPosting.objects.filter(
-            job_assign__assignee = user_id,
-            status = 'P'
-        )
-        pending_jobs_serializer = JobPostingSerializer(instance = pending_jobs, many = True)
+            ### To get rating of user
+            ratings = Rating.objects.filter(end_user = other_user)
+            rate_serializer = RateUserSerializer(instance=ratings, many=True)
 
-        # To get Completed jobs of user:
-        completed_jobs = JobPosting.objects.filter(
-            job_assign__assignee = user_id,
-            status = 'C'
-        )
-        completed_jobs_serializer = JobPostingSerializer(instance = completed_jobs, many = True)
+            ### In order to get reviews of  user:
+            reviews = Review.objects.filter(end_user = other_user)
+            review_serializer = ReviewUserSerializer(instance=reviews, many=True)
 
-        response = {
-                "message":"UserProfile of other user",
-                "UserProfile_data":user_serializer.data,
-                "rate_serializer":rate_serializer.data,
-                "review_serializer":review_serializer.data,
-                "pending_jobs_serializer":pending_jobs_serializer.data,
-                "completed_jobs_serializer":completed_jobs_serializer.data
-            }
+            ### To get Pending jobs of users:
+            pending_jobs = JobPosting.objects.filter(
+                job_assign__assignee = other_user,
+                status = 'P'
+            )
+            pending_jobs_serializer = JobPostingSerializer(instance = pending_jobs, many = True)
 
-        return Response(data=response, status=status.HTTP_200_OK)
+            ### To get Completed jobs of user:
+            completed_jobs = JobPosting.objects.filter(
+                job_assign__assignee = other_user,
+                status = 'C'
+            )
+            completed_jobs_serializer = JobPostingSerializer(instance = completed_jobs, many = True)
+
+            response = {
+                    "MESSAGE":"UserProfile of other user",
+                    "USERPROFILE":user_serializer.data,
+                    "RATINGS":rate_serializer.data,
+                    "REVIEWS":review_serializer.data,
+                    "PENDNG_JOBS":pending_jobs_serializer.data,
+                    "COMPLETED_JOBS":completed_jobs_serializer.data
+                }
+
+            return Response(data=response, status=status.HTTP_200_OK)
+        else:
+            return Response({'Message': 'User has no Userprofile!'}, status = status.HTTP_400_BAD_REQUEST)

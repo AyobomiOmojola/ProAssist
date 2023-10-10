@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
+from corsheaders.defaults import default_methods
+from corsheaders.defaults import default_headers
+import dj_database_url
+import socket
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,12 +29,26 @@ STATICFILES_DIRS = [
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bfp6ga3xpqdel9dkt2q+zidl7kjry1zo@@=5$$r*yafr8!1a2@'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ["*"]
+
+CORS_ALLOWED_ORIGINS = ['https://tinkertale.up.railway.app','http://tinkertale.up.railway.app','http://127.0.0.1']
+
+# CORS_ORIGIN_ALLOW_ALL = ['tinkertale.up.railway.app','127.0.0.1']
+
+CORS_ALLOW_HEADERS = (
+    *default_headers,
+    "my-custom-header",
+)
+
+CORS_ALLOW_METHODS = (
+    *default_methods,
+    "POKE",
+)
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -48,11 +67,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'channels_auth_token_middlewares'
+    'channels_auth_token_middlewares',
+    'corsheaders',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware", 
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'corsheaders.middleware.CorsMiddleware',
@@ -86,11 +109,17 @@ ASGI_APPLICATION = "proassist.asgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+PGSURL=config("PGSURL")
+DATABASES={
+    "default":dj_database_url.config(default=PGSURL,conn_max_age=1800),
 }
 
 
@@ -123,6 +152,24 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
+# Setup support for proxy headers
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        "Auth Token eg Token": {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    }
+}
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -140,18 +187,38 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'assets'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+redis_host = config('REDIS_HOST')
+# socket.getaddrinfo('redis_host', 6379)
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)],
+            "hosts": [("redis://default:N2uu49j6pWD0hvA0c3ro@containers-us-west-58.railway.app:6104")],
         },
     },
 }
+
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("127.0.0.1", 6379)],
+#         },
+#     },
+# }

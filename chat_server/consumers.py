@@ -59,7 +59,7 @@ class OnetoOneChatConsumer(AsyncWebsocketConsumer):
 
 
     @database_sync_to_async
-    def save_message(self, sender, thread_name, message,receiver):
+    def save_message(self, sender, thread_name, message, receiver):
         ChatBody.objects.create(sender=sender, message=message, thread_name=thread_name)
 
 

@@ -27,10 +27,10 @@ class Userprofile(models.Model):
     profession = models.ForeignKey(Profession, on_delete=models.DO_NOTHING, related_name= 'user_profession')
     profile_pic = models.ImageField(upload_to='profile_pic', null = True, blank = True)
     bio = models.CharField(max_length=264, verbose_name="Write a short bio about yourself")
-    price = MoneyField(max_digits=10, decimal_places=2, default_currency='NGN')
+    pricing_rate = MoneyField(max_digits=10, decimal_places=2, default_currency='NGN')
     phone_number = models.IntegerField()
     email = models.EmailField(max_length = 254)
-    state = models.ForeignKey(StateLga, on_delete=models.DO_NOTHING, related_name= 'user_state')
+    state = models.ForeignKey(StateLga, on_delete=models.DO_NOTHING, null=True, related_name= 'user_state')
     gender_options = (
         ('M','Male'),
         ('F','Female')
@@ -68,18 +68,22 @@ class Review(Base):
 
 
 class JobPosting(models.Model):
+    def foo():
+        return 'abia'
+    
     poster = models.ForeignKey(User, on_delete=models.CASCADE, related_name= "job_poster")
     profession = models.ForeignKey(Profession,on_delete=models.CASCADE, related_name="job_profession")
     job_description = models.TextField()
     price = MoneyField(max_digits=10, decimal_places=2, default_currency='USD')
     slug = models.SlugField(max_length=264, unique=True, default=uuid.uuid1)
-    location = models.ForeignKey(StateLga, on_delete=models.CASCADE, related_name="job_location")
+    location = models.ForeignKey(StateLga, on_delete=models.DO_NOTHING, blank=True, null=True, related_name="job_location")
     status_options = (
         ('NA','Not Allocated'),
         ('P','Pending'),
         ('C','Completed')
     )
-    status = models.CharField(null=True, blank=True, choices=status_options , max_length = 10)
+    status = models.CharField(choices=status_options , max_length = 10)
+
 
 
 class JobAssignment(models.Model):
