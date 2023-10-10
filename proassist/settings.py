@@ -17,6 +17,11 @@ from corsheaders.defaults import default_methods
 from corsheaders.defaults import default_headers
 import dj_database_url
 import socket
+from decouple import Config, RepositoryEnv
+
+# keeping secrets in production
+DOTENV_FILE = '/app/./proassist/.env'
+env_config = Config(RepositoryEnv(DOTENV_FILE))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,10 +34,13 @@ STATICFILES_DIRS = [
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+
+# SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = env_config.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+# DEBUG = config('DEBUG', cast=bool)
+DEBUG = env_config.get('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ["*"]
 
@@ -117,7 +125,13 @@ ASGI_APPLICATION = "proassist.asgi.application"
 # }
 
 
-PGSURL=config("PGSURL")
+# PGSURL=config("PGSURL")
+# DATABASES={
+#     "default":dj_database_url.config(default=PGSURL,conn_max_age=1800),
+# }
+
+# Live Database
+PGSURL=env_config.get("PGSURL")
 DATABASES={
     "default":dj_database_url.config(default=PGSURL,conn_max_age=1800),
 }
@@ -203,13 +217,24 @@ STORAGES = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-redis_host = config('REDIS_HOST')
+# redis_host = config('REDIS_HOST')
+# # socket.getaddrinfo('redis_host', 6379)
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("redis://default:N2uu49j6pWD0hvA0c3ro@containers-us-west-58.railway.app:6104")],
+#         },
+#     },
+# }
+
+redis_host = env_config.get('REDIS_HOST')
 # socket.getaddrinfo('redis_host', 6379)
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("redis://default:N2uu49j6pWD0hvA0c3ro@containers-us-west-58.railway.app:6104")],
+            "hosts": [("redis_host")],
         },
     },
 }
