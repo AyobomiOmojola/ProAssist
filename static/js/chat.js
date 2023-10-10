@@ -3,7 +3,10 @@ const sender = JSON.parse(document.getElementById('json-requestusername').textCo
 const receiver = JSON.parse(document.getElementById('json-otherusername').textContent);
 
 
-    let ws_path = 'ws://'+ window.location.host + '/ws/chat/' + id;
+    // when running in development use this:
+    // let ws_path = 'ws://'+ window.location.host + '/ws/chat/' + id;
+
+    let ws_path = 'wss://'+ window.location.host + '/wss/chat/' + id;
     const parts = window.location.href.split('?')
     if (parts.length == 2){
         ws_path += '/?' + parts[1]; 
