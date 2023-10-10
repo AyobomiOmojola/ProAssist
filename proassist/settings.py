@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-from decouple import config
 from corsheaders.defaults import default_methods
 from corsheaders.defaults import default_headers
 import dj_database_url
