@@ -16,5 +16,5 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD daphne -p 8005 -b 0.0.0.0 proassist.asgi:application
+CMD daphne proassist.asgi:application
 
