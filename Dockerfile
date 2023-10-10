@@ -16,7 +16,7 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-# CMD ["daphne", "proassist.asgi:application", "--bind", "0.0.0.0:8005", "-v2"]
+CMD Procfile
 
 
 
