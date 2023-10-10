@@ -16,12 +16,9 @@ from decouple import config
 from corsheaders.defaults import default_methods
 from corsheaders.defaults import default_headers
 import dj_database_url
-import socket
-from decouple import Config, RepositoryEnv
+from dotenv import load_dotenv
 
-# keeping secrets in production
-DOTENV_FILE = '/app/./proassist/.env'
-env_config = Config(RepositoryEnv(DOTENV_FILE))
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,22 +26,23 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-# SECRET_KEY = config('SECRET_KEY')
-SECRET_KEY = env_config.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = config('DEBUG', cast=bool)
-DEBUG = env_config.get('DEBUG', cast=bool)
+DEBUG = os.environ.get('DEBUG', cast=bool)
+
 
 ALLOWED_HOSTS = ["*"]
 
-CORS_ALLOWED_ORIGINS = ['https://tinkertale.up.railway.app','http://tinkertale.up.railway.app','http://127.0.0.1']
+# CORS_ALLOWED_ORIGINS = ['https://tinkertale.up.railway.app','http://tinkertale.up.railway.app','http://127.0.0.1']
 
 # CORS_ORIGIN_ALLOW_ALL = ['tinkertale.up.railway.app','127.0.0.1']
 
@@ -124,17 +122,12 @@ ASGI_APPLICATION = "proassist.asgi.application"
 #     }
 # }
 
-
-# PGSURL=config("PGSURL")
-# DATABASES={
-#     "default":dj_database_url.config(default=PGSURL,conn_max_age=1800),
-# }
-
-# Live Database
-PGSURL=env_config.get("PGSURL")
+# Live Database for production
+PGSURL=os.environ.get("PGSURL")
 DATABASES={
     "default":dj_database_url.config(default=PGSURL,conn_max_age=1800),
 }
+
 
 
 REST_FRAMEWORK = {
@@ -217,27 +210,27 @@ STORAGES = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# redis_host = config('REDIS_HOST')
-# # socket.getaddrinfo('redis_host', 6379)
-# CHANNEL_LAYERS = {
-#     "default": {
-#         "BACKEND": "channels_redis.core.RedisChannelLayer",
-#         "CONFIG": {
-#             "hosts": [("redis://default:N2uu49j6pWD0hvA0c3ro@containers-us-west-58.railway.app:6104")],
-#         },
-#     },
-# }
-
-redis_host = env_config.get('REDIS_HOST')
+redis_host = os.environ.get('REDIS_HOST')
 # socket.getaddrinfo('redis_host', 6379)
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("redis_host")],
+            "hosts": [("redis://default:N2uu49j6pWD0hvA0c3ro@containers-us-west-58.railway.app:6104")],
         },
     },
 }
+
+# redis_host = env_config.get('REDIS_HOST')
+# # socket.getaddrinfo('redis_host', 6379)
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("redis_host")],
+#         },
+#     },
+# }
 
 # CHANNEL_LAYERS = {
 #     "default": {
