@@ -61,11 +61,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 INSTALLED_APPS = [
     "daphne",
-    'core_app',
-    'core_auth',
-    'djmoney',
-    'rest_framework.authtoken',
-    'chat_server',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -73,7 +68,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'channels_auth_token_middlewares',
+    'rest_framework.authtoken',
     'corsheaders',
+    'core_app',
+    'core_auth',
+    'djmoney',
+    'chat_server',
     'drf_yasg'
 ]
 
