@@ -16,6 +16,6 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["daphne", "proassist.asgi:application", "--port", "$PORT", "--bind", "0.0.0.0", "-v2"]
+CMD web: daphne proassist.asgi:application --port $PORT --bind 0.0.0.0 -v2
 
 
