@@ -74,12 +74,11 @@ ProAssist offers a chat feature to enable clients to chat with professionals who
 
 13. Access the live API documentation at ```http://127.0.0.1:8000/docs```
     
-14. Where USERNAME = Username of the user you want to chat with
-    and   TOKEN = Your Login Token;
+14. Where USERNAME = Username of the user you want to chat with and TOKEN = Your Login Token;
     
 Hence access the chat server at ```http://127.0.0.1:8000/USERNAME/?token=TOKEN```
 
-(You could register and login users with their chat screens on different browser tabs)
+(You could register and login users and follow the url guide above to correctly load their chat screens on say two different browser tabs)
 
 # Authors
 ProAssist is developed and maintained by Ayo Omojola
