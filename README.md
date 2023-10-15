@@ -72,7 +72,14 @@ ProAssist offers a chat feature to enable clients to chat with professionals who
     
 ``` $ py manage.py runserver ```
 
-13. Access the application at ```http://127.0.0.1:8000```
+13. Access the live API documentation at ```http://127.0.0.1:8000/docs```
+    
+14. Where USERNAME = Username of the user you want to chat with
+    and   TOKEN = Your Login Token;
+    
+Hence access the chat server at ```http://127.0.0.1:8000/USERNAME/?token=TOKEN```
+
+(You could register and login users with their chat screens on different browser tabs)
 
 # Authors
 ProAssist is developed and maintained by Ayo Omojola
