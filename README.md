@@ -22,7 +22,7 @@ Below is the list of all professions by professionals in ProAssist:
 # Features
 API
 
-- Non-Allocated jobs are displayed according to each professional's profession on their respective home page.
+- Non-Allocated jobs are displayed according to each professional's profession on their respective home page
 - Creation of job openings for professionals by clients
 - Assigning of jobs to qualified professionals
 - Obtaining all Non-Allocated job openings by professionals
@@ -47,10 +47,13 @@ ProAssist offers a chat feature to enable clients to chat with professionals who
 ``` $ git clone https://github.com/AyobomiOmojola/ProAssist.git ```
 
 3. Comment out the production PostgreSQL database in the settings file and replace with SQLlite for use in development
-4. Repeat the above step also for redis and have a redis docker container running on your local machine
-5. Create and activate a virtual environment for this project
+   
+5. Repeat the above step also for redis and have a redis docker container running on your local machine
+   
+7. Create and activate a virtual environment for this project
 
 ``` $ python -m venv venv ```
+
 ``` $ source venv/bin/activate ```
 
 6. Install project dependencies
@@ -69,7 +72,7 @@ ProAssist offers a chat feature to enable clients to chat with professionals who
     
 ``` $ py manage.py runserver ```
 
-13. Access the application at http://127.0.0.1:8000
+13. Access the application at ```http://127.0.0.1:8000```
 
 # Authors
 ProAssist is developed and maintained by Ayo Omojola
