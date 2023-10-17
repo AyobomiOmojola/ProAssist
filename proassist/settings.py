@@ -14,6 +14,7 @@ from pathlib import Path
 from corsheaders.defaults import default_methods
 from corsheaders.defaults import default_headers
 import dj_database_url
+from decouple import config
 
 
 
@@ -34,11 +35,11 @@ STATICFILES_DIRS = [
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECRET_KEY = os.getenv('SECRET_KEY')
-SECRET_KEY = 'django-insecure-bfp6ga3xpqdel9dkt2q+zidl7kjry1zo@@=5$$r*yafr8!1a2@'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.getenv('DEBUG')
-DEBUG = True
+DEBUG = config('DEBUG')
 
 
 
@@ -124,9 +125,9 @@ ASGI_APPLICATION = "proassist.asgi.application"
 # }
 
 # Live Database for production
-# PGSURL=os.getenv("PGSURL")
+PGSURL=config("PGSURL")
 DATABASES={
-    "default":dj_database_url.config(default="postgresql://postgres:wZpxFWm1gLA0ASTSeDbA@containers-us-west-74.railway.app:6192/railway",conn_max_age=1800),
+    "default":dj_database_url.config(default="PGSURL",conn_max_age=1800),
 }
 
 
@@ -213,12 +214,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Production Redis Configuration
-# redis_host = os.getenv('REDIS_HOST')
+redis_host = config('REDIS_HOST')
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("redis://default:N2uu49j6pWD0hvA0c3ro@containers-us-west-58.railway.app:6104")],
+            "hosts": [("redis_host")],
         },
     },
 }
