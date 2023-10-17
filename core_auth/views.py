@@ -102,7 +102,7 @@ class LogoutView(APIView):
 
 class RateUser(APIView):
     permission_classes = [permissions.IsAuthenticated]
-    @swagger_auto_schema(operation_summary="Rate professionals", operation_description="THIS ENDPOINT ALLOWS CONSUMERS TO RATE PROFESSIONALS FOR SERVICES RENDERED", request_body=RateUserSerializer, tags=['Rate/Review Professionals'])
+    @swagger_auto_schema(operation_summary="Rate professionals", operation_description="THIS ENDPOINT ALLOWS CLIENTS TO RATE PROFESSIONALS FOR SERVICES RENDERED", request_body=RateUserSerializer, tags=['Rate/Review Professionals'])
 
     def post(self, request:Request, username):
         enduser = User.objects.get(username = username)
@@ -129,7 +129,7 @@ class RateUser(APIView):
 
 class ReviewUser(APIView):
     permission_classes = [permissions.IsAuthenticated]
-    @swagger_auto_schema(operation_summary="Review professionals", operation_description="THIS ENDPOINT ALLOWS CONSUMERS WRITE A REVIEW ON PROFESSIONALS FOR SERVICES RENDERED", request_body=ReviewUserSerializer, tags=['Rate/Review Professionals'])
+    @swagger_auto_schema(operation_summary="Review professionals", operation_description="THIS ENDPOINT ALLOWS CLIENTS WRITE A REVIEW ON PROFESSIONALS FOR SERVICES RENDERED", request_body=ReviewUserSerializer, tags=['Rate/Review Professionals'])
 
     def post(self, request:Request, username):
         enduser = User.objects.get(username = username)

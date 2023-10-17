@@ -24,7 +24,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="ProAssist API",
         default_version='v1',
-        description="A REST API with robust features for webapps focused on bridging the gap between skilled professionals and consumers.",
+        description="A REST API with robust features for webapps focused on bridging the gap between skilled professionals and clients.",
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),

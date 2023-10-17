@@ -40,7 +40,7 @@ class JobPostingLogic(APIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     #### HOME PAGE to display available jobs of the same profession tag with the request.user
-    @swagger_auto_schema(operation_summary="This serves data for the HOME PAGE", operation_description="THIS ENDPOINT SERVES DATA FOR THE HOMEPAGE OF THE PROFESSIONALS. FOR NON AUTHENTICATED USERS, ALL NON ALLOCATED JOB POSTINGS ARE DISPLAYED BUT FOR AUTHENTICATED USERS(PROFESSIONALS) NON-ALLOCATED JOB OPENINGS TAGGED WITH THE SAME PROFESSION AS THAT OF THE PROFESSIONAL ARE DISPLAYED(JOB OPENINGS ARE POSTED BY CONSUMERS IN NEED OF A SERVICE)\n\n THEY ARE VARIOUS STATUS FOR JOBS; 'NA' FOR NOT ALLOCATED(JOBS WITH NO ASSIGNED PROFESSIONAL), 'P' FOR PENDING(JOBS STILL ATTENDED TO BY A PROFESSIONAL), 'C' FOR COMPLETED(JOBS COMPLETED BY A PROFESSIONAL)", tags=['Job Posting'])
+    @swagger_auto_schema(operation_summary="This serves data for the HOME PAGE", operation_description="THIS ENDPOINT SERVES DATA FOR THE HOMEPAGE OF THE PROFESSIONALS. FOR NON AUTHENTICATED USERS, ALL NON ALLOCATED JOB POSTINGS ARE DISPLAYED BUT FOR AUTHENTICATED USERS(PROFESSIONALS) NON-ALLOCATED JOB OPENINGS TAGGED WITH THE SAME PROFESSION AS THAT OF THE PROFESSIONAL ARE DISPLAYED(JOB OPENINGS ARE POSTED BY CLIENTS IN NEED OF A SERVICE)\n\n THEY ARE VARIOUS STATUS FOR JOBS; 'NA' FOR NON-ALLOCATED(JOBS WITH NO ASSIGNED PROFESSIONAL), 'P' FOR PENDING(JOBS STILL ATTENDED TO BY A PROFESSIONAL), 'C' FOR COMPLETED(JOBS COMPLETED BY A PROFESSIONAL)", tags=['Home Page'])
 
     def get(self, request:Request):
         # JOB POSTINGS DISPLAYED FOR NON AUTHENTICATED USERS
@@ -50,7 +50,7 @@ class JobPostingLogic(APIView):
             )
             serializer = JobPostingSerializer(instance=job_posting, many=True)
             response = {
-                "MESSAGE": "These are the lists of ALL 'NA'(Not-allocated) jobs for NON-Authenticated users",
+                "MESSAGE": "These are the lists of ALL 'NA'(Non-allocated) jobs for NON-Authenticated users",
                 "JOB_OPENINGS":serializer.data
             }
 
@@ -66,7 +66,7 @@ class JobPostingLogic(APIView):
                 )
                 serializer = JobPostingSerializer(instance=job_posting, many=True)
                 response = {
-                    "MESSAGE": "These are the lists of Non allocated jobs of the same profession with the professional",
+                    "MESSAGE": "These are the lists of Non-Allocated jobs of the same profession with the professional",
                     "JOB_OPENINGS":serializer.data
                 }
 
@@ -74,8 +74,8 @@ class JobPostingLogic(APIView):
             else:
                 return Response({'Message': 'You have no UserProfile!'}, status = status.HTTP_400_BAD_REQUEST)
 
-    #### To create jobs by consumers with such jobs automatically set as Not-Allocated
-    @swagger_auto_schema(operation_summary="Create job openings for professionals", operation_description="THIS ENDPOINT ALLOWS CONSUMERS TO CREATE JOB OPENINGS WHICH ARE AUTOMATICALLY SET TO 'NA'(NOT-ALLOCATED)", request_body=JobPostingSerializer(), tags=['Job Posting'])
+    #### To create jobs by clients with such jobs automatically set as Non-Allocated
+    @swagger_auto_schema(operation_summary="Create job openings for professionals", operation_description="THIS ENDPOINT ALLOWS CLIENTS TO CREATE JOB OPENINGS WHICH ARE AUTOMATICALLY SET TO 'NA'(NON-ALLOCATED)", request_body=JobPostingSerializer(), tags=['Job Posting'])
 
     def post(self, request:Request):
         data = request.data
@@ -97,12 +97,12 @@ class JobPostingLogic(APIView):
 
 
 ########
-### GET LIST OF ALL "NOT ALLOCATED"(AVAILABLE) JOBS BY PROFESSION:
+### GET LIST OF ALL "NON ALLOCATED"(AVAILABLE) JOBS BY PROFESSION:
 #######
 
 class JobsByProfesion(APIView):
     permission_classes = [permissions.IsAuthenticated]
-    @swagger_auto_schema(operation_summary="Get all Non allocated jobs by profession", operation_description="THIS ENDPOINT IS TO GET THE LIST OF ALL 'NOT-ALLOCATED' JOBS CATEGORIZED BY PROFESSION", tags=['Job Posting'])
+    @swagger_auto_schema(operation_summary="Get all Non-Allocated jobs by profession", operation_description="THIS ENDPOINT IS TO GET THE LIST OF ALL 'NON-ALLOCATED' JOBS CATEGORIZED BY PROFESSION", tags=['Job Posting'])
 
     def get(self, request:Request, profession):
         professions = Profession.objects.get(profession=profession)
@@ -112,7 +112,7 @@ class JobsByProfesion(APIView):
         serializer = JobPostingSerializer(instance=job_posting, many=True)
 
         response = {
-            "message": "These are all the (NOT-Allocated)Jobs for the profession selected",
+            "message": "These are all the (NON-Allocated)Jobs for the profession selected",
             "data":serializer.data
         }
 
@@ -120,13 +120,13 @@ class JobsByProfesion(APIView):
 
 
 ##########
-##### LOGIC TO HELP CONSUMERS ASSIGN A JOB TO A PROFESSIONAL WITH JOB STATUS AUTOMATICALLY SET AS "PENDING":
+##### LOGIC TO HELP CLIENTS ASSIGN A JOB TO A PROFESSIONAL WITH JOB STATUS AUTOMATICALLY SET AS "PENDING":
 #########
 
 class JobAssignmentLogic(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
-    @swagger_auto_schema(operation_summary="Assign a job to a professional", operation_description="THIS ENDPOINT ALLOWS CONSUMERS TO ASSIGN A JOB TO A PROFESSIONAL WITH THAT JOB STATUS AUTOMATICALLY SET AS 'PENDING'", tags=['Job Posting'])
+    @swagger_auto_schema(operation_summary="Assign a job to a professional", operation_description="THIS ENDPOINT ALLOWS CLIENTS TO ASSIGN A JOB TO A PROFESSIONAL WITH THAT JOB STATUS AUTOMATICALLY SET AS 'PENDING'", tags=['Job Posting'])
 
     def get(self,request:Request, pros_username, job_slug):
         pro_user = User.objects.get(username = pros_username)
@@ -153,13 +153,13 @@ class JobAssignmentLogic(APIView):
 
 
 #########
-###### LOGIC TO SET A JOB AS "COMPLETED" WHEN FINISHED BY THE CONSUMER
+###### LOGIC TO SET A JOB AS "COMPLETED" WHEN FINISHED BY THE CLIENTS
 #########
 
 class CompleteJobTask(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
-    @swagger_auto_schema(operation_summary="Update a job as completed", operation_description="THIS ENDPOINT ALLOWS CONSUMERS TO UPDATE A JOB AS COMPLETED AFTER A PROFESSIONAL HAS RENDERED THE REQUESTED SERVICE IN THE JOB", tags=['Job Posting'])
+    @swagger_auto_schema(operation_summary="Update a job as completed", operation_description="THIS ENDPOINT ALLOWS CLIENTS TO UPDATE A JOB AS COMPLETED AFTER A PROFESSIONAL HAS RENDERED THE REQUESTED SERVICE IN THE JOB", tags=['Job Posting'])
 
     def get(self,request:Request, job_slug):
         job_post = JobPosting.objects.get(slug=job_slug)
@@ -184,7 +184,7 @@ class CompleteJobTask(APIView):
 
 class FreeProsLogic(APIView):
     permission_classes = [permissions.IsAuthenticated]
-    @swagger_auto_schema(operation_summary="Get free professionals by profession", operation_description="THIS ENDPOINT ALLOWS CONSUMERS TO GET AVAILABLE PROFESSIONALS BY PROFESSION i.e PROFESSIONALS WITH NO JOBS PENDING", tags=['Free Professionals'])
+    @swagger_auto_schema(operation_summary="Get free professionals by profession", operation_description="THIS ENDPOINT ALLOWS CLIENTS TO GET AVAILABLE PROFESSIONALS BY PROFESSION i.e PROFESSIONALS WITH NO JOBS PENDING", tags=['Free Professionals'])
 
     def get(self, request:Request, profession):
         professions = Profession.objects.get(profession=profession)

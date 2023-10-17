@@ -78,7 +78,7 @@ class JobPosting(models.Model):
     slug = models.SlugField(max_length=264, unique=True, default=uuid.uuid1)
     location = models.ForeignKey(StateLga, on_delete=models.DO_NOTHING, blank=True, null=True, related_name="job_location")
     status_options = (
-        ('NA','Not Allocated'),
+        ('NA','Non Allocated'),
         ('P','Pending'),
         ('C','Completed')
     )
