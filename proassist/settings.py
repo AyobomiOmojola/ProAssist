@@ -127,7 +127,7 @@ ASGI_APPLICATION = "proassist.asgi.application"
 # Live Database for production
 PGSURL=config("PGSURL")
 DATABASES={
-    "default":dj_database_url.config(default="PGSURL",conn_max_age=1800),
+    "default":dj_database_url.config(default=PGSURL,conn_max_age=1800),
 }
 
 
