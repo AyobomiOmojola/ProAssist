@@ -16,3 +16,10 @@ application = ProtocolTypeRouter(
         "websocket": TokenAuthMiddleWare(URLRouter(chat_server.routing.websocket_urlpatterns)),
     }
 )
+
+
+
+
+
+
+
