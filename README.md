@@ -10,10 +10,10 @@ Below is the list of all professions by professionals in ProAssist:
 - Plumber
 - Barber
 - Gardener
-- HairStylist
+- Hair-Stylist
 - Cook
 - Nanny
-- GarbageCollector
+- Garbage-Collector
 - Painter
 - Electrician
 - Carpenter
@@ -46,35 +46,35 @@ ProAssist offers a chat feature to enable clients to chat with professionals who
 
 ``` $ git clone https://github.com/AyobomiOmojola/ProAssist.git ```
 
-3. Comment out the production PostgreSQL database in the settings file and replace with SQLlite for use in development
+2. Comment out the production PostgreSQL database in the settings file and replace with SQLlite for use in development
    
-5. Repeat the above step also for redis and have a redis docker container running on your local machine
+3. Repeat the above step also for redis and have a redis docker container running on your local machine
    
-7. Create and activate a virtual environment for this project
+4. Create and activate a virtual environment for this project
 
 ``` $ python -m venv venv ```
 
 ``` $ source venv/bin/activate ```
 
-6. Install project dependencies
+5. Install project dependencies
 
 ``` $ pip install -r requirements.txt ```
 
-8. Run database migrations
+6. Run database migrations
    
 ``` $ py manage.py migrate ```
 
-10. Create superuser to access the admin dashboard
+7. Create superuser to access the admin dashboard
     
 ``` $ py manage.py createsuperuser ```
 
-12. Run the development server
+8. Run the development server
     
 ``` $ py manage.py runserver ```
 
-13. Access the live API documentation at ```http://127.0.0.1:8000/docs```
+9. Access the live API documentation at ```http://127.0.0.1:8000/docs```
     
-14. Where USERNAME = Username of the user you want to chat with and TOKEN = Your Login Token;
+10. Where USERNAME = Username of the user you want to chat with and TOKEN = Your Login Token;
     
 Hence access the chat server at ```http://127.0.0.1:8000/USERNAME/?token=TOKEN```
 
