@@ -4,19 +4,9 @@ const receiver = JSON.parse(document.getElementById('json-otherusername').textCo
 
 
     // when running in development use this:
-    
-    
+    // ws_path = 'ws://' + window.location.host + '/ws/chat/' + id;
 
-
-
-    let ws_path;
-
-    if (window.location.protocol === 'https:') {
-        ws_path = 'wss://' + window.location.host + '/wss/chat/' + id;
-    } else {
-        ws_path = 'ws://' + window.location.host + '/ws/chat/' + id;
-    }
-    
+    ws_path = 'wss://' + window.location.host + '/wss/chat/' + id;
     const parts = window.location.href.split('?');
     if (parts.length == 2) {
         ws_path += '/?' + parts[1];
