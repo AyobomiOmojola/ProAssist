@@ -41,6 +41,13 @@ ProAssist offers a chat feature to enable clients to chat with professionals who
 
 ![Screenshot (352)](https://github.com/AyobomiOmojola/ProAssist/assets/145074091/ac279652-66e9-4ea9-a97c-f52f26b3a7e8)
 
+Below are links in order to test the live chat server; Two users with non expiry tokens have been registered:
+
+To chat as Jane: ```https://proassist.up.railway.app/chat/john/?token=c5c0f6d7f4df1ae188eb2344bb96911a432b7402```
+To chat as John: ```https://proassist.up.railway.app/chat/jane/?token=b16facf56bb7564389d7db4e09dcf93bc14b94f8```
+
+Both chat screens can be loaded on say two different browsertabs.
+
 # Installation and Usage
 1. Clone the repository
 
